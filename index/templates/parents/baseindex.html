@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+    Address-Book|
+        {% block title %} {% endblock %}</title>
+                <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="Personal, Portfolio, Creative">
+        <meta name="description" content="Kalvin Portfolio Template">
+        <meta name="author" content="cosmos-themes">
+
+        <!-- favicon -->
+        <link href="{% static 'images/DevLOGO1.png' %}" rel="icon" type="image/png">
+
+        <!--Font Awesome css-->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+        <!--Bootstrap css-->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+        <!--Owl Carousel css-->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+        <!--Magnific Popup css-->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+        <!--Site Main Style css-->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+{% block head %} {% endblock %}
+
+</head>
+<body dir="auto">
+
+{% block content %} {% endblock %}
+
+</body>
+
+{% include 'partials/footer.html' %}
+
+</html>

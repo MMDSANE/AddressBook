@@ -1,0 +1,114 @@
+{% extends 'parents/basecontacts.html' %}
+
+{% load static %}
+{% load jformat %}
+<!DOCTYPE html>
+{% block title %} contact-details {% endblock %}
+<html dir="rtl" lang="en">
+
+    {% block content %}
+            <body>
+            <!--Preloader Start-->
+            <div class="preloader">
+                <div class="loader "></div>
+            </div>
+            <!--Preloader End-->
+
+            <!--Navbar Start-->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <!-- LOGO -->
+                    <a class="navbar-brand logo" href="#">
+                        :)
+                    </a>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'index:index' %}" class="nav-link active">برگشت</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--Navbar End-->
+
+            <section class="banner-blog">
+                <div id="particles-js"></div>
+                <!--Banner Caption-->
+                <div class="banner-caption text-center">
+                    <h1>جزئیات اطلاعات فرد</h1>
+                    <div class="bread-crumb mt-10">
+                        <a href="{% url 'index:index' %}">خانه</a>
+                        <a href="{% url 'contacts:contacts_list' %}">دفترچه تلفن</a>
+                        <a href="#">اطلاعات</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="blog-detail pt-100 pb-100">
+                <div class="container">
+                    <div class="row">
+                        <!--Blog Content-->
+                        <div class="col-lg-8 offset-lg-2">
+                            <!--Blog Image-->
+                            <div class="blog-image">
+                                {% if contact_single.pic %}
+                                    <img src="{{ contact_single.pic.url }}" alt="PHOTO">
+                                {% else %}
+                                    <img src="{% static 'images/user.PNG' %}" alt="PHOTO">
+                                {% endif %}
+                            </div>
+                            <!--Blog Heading-->
+                            <div class="blog-heading">
+                                <h2>{{ contact_single.first_name }} - {{ contact_single.last_name }}</h2>
+                                <div class="blog-meta">
+                                    <span class="date">{{ contact_single.create_at|jformat:"%Y / %m / %d" }}</span>
+                                    <span class="by">توسط مدیریت وبسایت</span>
+                                </div>
+                            </div>
+                            <!--Blog Content-->
+                            <div class="blog-content">
+                                <p>{{ contact_single.email }}</p>
+                                <br>
+{#                                {% for number in contact_single.phone_numbers %}#}
+                                    <blockquote>{{ contact_single.phone_numbers.first }}</blockquote>
+{#                                {% endfor %}#}
+{#                                {% for address in contact_single.addresses %}#}
+                                    <blockquote>{{ contact_single.addresses.first }}</blockquote>
+{#                                {% endfor %}#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!--Jquery js-->
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+            <!--Bootstrap js-->
+            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            <!--Stellar js-->
+            <script src="{% static 'js/jquery.stellar.js' %}"></script>
+            <!--Animated Headline js-->
+            <script src="{% static 'js/animated.headline.js' %}"></script>
+            <!--Owl Carousel js-->
+            <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+            <!--ScrollIt js-->
+            <script src="{% static 'js/scrollIt.min.js' %}"></script>
+            <!--Isotope js-->
+            <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+            <!--Magnific Popup js-->
+            <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+            <!--Particles js-->
+            <script src="{% static 'js/particles.min.js' %}"></script>
+            <!--Site Main js-->
+            <script src="{% static 'js/main.js' %}"></script>
+            <script>
+                //Particles
+                particlesJS.load('particles-js', '{% static 'js/particles.json' %}', function() {
+                    console.log('particles loaded');
+                });
+            </script>
+        </body>
+    {% endblock %}
+
+</html>

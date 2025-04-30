@@ -1,0 +1,181 @@
+{% extends 'parents/baseindex.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+{% block title %} home {% endblock %}
+    {% block head %}
+
+
+
+    {% endblock %}
+
+    {% block content %}
+            <body>
+            <!--Preloader-->
+            <div class="preloader">
+                <div class="loader "></div>
+            </div>
+            <!--Preloader-->
+
+            <!--Navbar Start-->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <!-- LOGO -->
+                    <a class="navbar-brand logo" href="#">
+                        :)
+                    </a>
+
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="navbar-collapse collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ml-auto">
+                            <!--Nav Links-->
+                            <li class="nav-item">
+                                <a href="{% url 'index:index' %}" class="nav-link active" data-scroll-nav="0">خانه</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'contacts:contacts_list' %}" class="nav-link" >دفترچه تلفن</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'management:login' %}" class="nav-link" >مدیریت</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-scroll-nav="5">تماس با من</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Navbar End-->
+
+            <!--Home Section Start-->
+            <section id="home" class="banner banner-centered" style="background-image: url('{% static 'images/background/creative2-banner-bg.jpg' %}')" data-stellar-background-ratio=".7" data-scroll-index="0">
+                <!--Banner Content-->
+                <div class="banner-caption">
+                    <h1>سلام من محمدحسین هستم</h1>
+                    <p class="cd-headline clip mt-30">
+                        <span>برنامه نویس</span><br>
+                        <span class="blc">توسعه دهنده</span>
+                        <span class="cd-words-wrapper">
+                            <b class="is-visible">اپلیکیشن‌های اندرویدی</b>
+                            <b>وبسایت‌ها</b>
+                        </span>
+                    </p>
+                </div>
+                <div class="arrow bounce">
+                    <a class="fa fa-chevron-down fa-2x" href="#" data-scroll-nav="1"></a>
+                </div>
+
+                <svg id="home-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1400 300" preserveAspectRatio="none">
+                    <path class="p-curve" d="M-0.2,0.5c0,0-21.7,99.6,233.1,99.6s320.1,199.7,467.6,200.1S898.6,100,1167.6,100S1401,0,1401,0v301H0 L-0.2,0.5z"/>
+                </svg>
+            </section>
+            <!--Home Section End-->
+
+            <!--About Section Start-->
+            <section class="about pt-100 pb-100" data-scroll-index="1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6">
+                            <!--About Image-->
+                            <div class="about-img">
+                                <img src="{% static 'images/apple.jpg' %}" alt="phone">
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-6">
+                            <!--About Content-->
+                            <div class="about-content">
+                                <div class="about-heading">
+                                    <h2>دفترچه تلفن</h2>
+                                </div>
+                                <p>دفترچه تلفن ابزاری سنتی و کاربردی برای ذخیره و سازمان‌دهی اطلاعات تماس افراد است. این وسیله معمولاً به‌صورت یک کتابچه کاغذی طراحی می‌شود که در آن نام‌ها، شماره‌های تلفن و گاهی آدرس‌ها یا اطلاعات اضافی مانند ایمیل ثبت می‌گردد. در گذشته، دفترچه‌های تلفن شخصی در خانه‌ها و محل کار رایج بودند و افراد برای به خاطر سپردن شماره‌های مهم از آن استفاده می‌کردند. همچنین، شرکت‌های مخابراتی دفترچه‌های تلفن عمومی منتشر می‌کردند که شامل فهرستی از شماره‌های مشترکین یک منطقه بود. با پیشرفت فناوری و ظهور گوشی‌های هوشمند، استفاده از دفترچه‌های کاغذی کاهش یافت، زیرا برنامه‌های مدیریت مخاطبین دیجیتال جایگزین آن‌ها شدند. با این حال، دفترچه تلفن هنوز برای برخی افراد، به‌ویژه کسانی که به فناوری دیجیتال وابسته نیستند، ارزش نوستالژیک و کاربردی دارد. این ابزار ساده، نمادی از دوران پیش از دیجیتالی شدن ارتباطات است.</p>
+                                <!--About Social Icons-->
+                                <div class="social-icons">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                </div>
+                                <span class="about-button">
+                                    <a class="main-btn" href="{% url 'contacts:contacts_list' %}">ورود به دفترچه تلفن</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--About Section End-->
+
+
+            <!--Contact Section Start-->
+            <section class="contact pt-100 pb-100" data-scroll-index="5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="heading">
+                                <h6>تماس</h6>
+                                <h2>در تماس باشید</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <!--Contact Form-->
+                                <form method='post'>
+                                    {% csrf_token %}
+                                    <input type='hidden' name='formcall' value='CallForm' />
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <!--name-->
+                                            <input type="text" class="form-control con-validate" id="contact-name" name="callname" placeholder="نام" minlength=3 >
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <!--email-->
+                                            <input type="email" class="form-control con-validate" id="contact-email" name="callemail" placeholder="ایمیل" >
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <!--message box-->
+                                            <textarea class="form-control con-validate" id="contact-message" name="callmessage" placeholder="چگونه میتوانم به شما کمک کنیم؟" rows=6 ></textarea>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <!--contact button-->
+                                            <button id="contact-submit" class="mt-30 main-btn" type="submit">
+                                                ارسال پیام
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!--Jquery js-->
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+            <!--Bootstrap js-->
+            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            <!--Stellar js-->
+            <script src="{% static 'js/jquery.stellar.js' %}"></script>
+            <!--Animated Headline js-->
+            <script src="{% static 'js/animated.headline.js' %}"></script>
+            <!--Owl Carousel js-->
+            <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+            <!--ScrollIt js-->
+            <script src="{% static 'js/scrollIt.min.js' %}"></script>
+            <!--Isotope js-->
+            <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+            <!--Magnific Popup js-->
+            <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+            <!--Site Main js-->
+            <script src="{% static 'js/main.js' %}"></script>
+                <!--Contact Section End-->
+
+        </body>
+    {% endblock %}
+</html>

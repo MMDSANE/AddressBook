@@ -1,0 +1,317 @@
+{% extends 'parents/basecontacts.html' %}
+{% load static %}
+{% load jformat %}
+<!DOCTYPE html>
+{% block title %} List {% endblock %}
+<html dir="rtl" lang="en">
+
+    {% block content %}
+            <body>
+            <div class="preloader">
+                <div class="loader "></div>
+            </div>
+
+            <!--Navbar Start-->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <!-- LOGO -->
+                    <a class="navbar-brand logo" href="#">
+                        :)
+                    </a>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'index:index' %}" class="nav-link active">برگشت</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--Navbar End-->
+
+            <section class="banner-blog">
+                <div id="particles-js"></div>
+                <!--Banner Caption-->
+                <div class="banner-caption text-center">
+                    <h1>دفترچه تلفن</h1>
+                    <div class="bread-crumb mt-10">
+                        <a href="{% url 'index:index' %}">خانه</a>
+                        <a href="#">دفترچه تلفن</a>
+                    </div>
+                </div>
+            </section>
+
+            <!--Blog List Section Starts-->
+            <section class="blogs blog-list pt-100 pb-50" data-scroll-index="4">
+                <div class="container">
+                    <div class="row">
+                        {% for contact in contactslist %}
+                            <div class="col-lg-4 col-md-6">
+                                <!--Blogs Item-->
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <a href="#">
+                                            {% if contact.pic %}
+                                                <img src="{{ contact.pic.url }}" alt="PHOTO">
+                                            {% else %}
+                                                <img src="{% static 'images/user.PNG' %}" alt="PHOTO">
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <h3>{{ contact.first_name }} - {{ contact.last_name }}</h3>
+                                        <p>{{ contact.phone_numbers.first }}</p>
+                                        <div class="blog-meta">
+                                            <span class="more">
+                                                <a href="{{ contact.get_absolute_url }}">بازدید</a>
+                                            </span>
+                                            <span class="date">
+                                                {{ contact.create_at|jformat:"%Y / %m / %d" }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+            <!--Blog List Section End-->
+
+            <script src="{% static 'js/jquery.min.js' %}"></script>
+            <!--Bootstrap js-->
+            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            <!--Stellar js-->
+            <script src="{% static 'js/jquery.stellar.js' %}"></script>
+            <!--Animated Headline js-->
+            <script src="{% static 'js/animated.headline.js' %}"></script>
+            <!--Owl Carousel js-->
+            <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+            <!--ScrollIt js-->
+            <script src="{% static 'js/scrollIt.min.js' %}"></script>
+            <!--Isotope js-->
+            <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+            <!--Magnific Popup js-->
+            <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+            <!--Site Main js-->
+            <script src="{% static 'js/main.js' %}"></script>
+
+            <script>
+                // Particles
+                particlesJS.load('particles-js', '{% static "js/particles.json" %}', function() {
+                    console.log('callback - particles.js config loaded');
+                });
+            </script>
+
+        </body>
+    {% endblock %}
+</html>
+
+{#{% extends 'parents/basecontacts.html' %}#}
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#{% block title %} List {% endblock %}#}
+{#<html dir="rtl" lang="en">#}
+{##}
+{#    {% block content %}#}
+{#        <h1>hi</h1>#}
+{#                    <body>#}
+{#            <div class="preloader">#}
+{#                <div class="loader "></div>#}
+{#            </div>#}
+{##}
+{#            <!--Navbar Start-->#}
+{#            <nav class="navbar navbar-expand-lg navbar-dark">#}
+{#                <div class="container">#}
+{#                    <!-- LOGO -->#}
+{#                    <a class="navbar-brand logo" href="#">#}
+{#                        :)#}
+{#                    </a>#}
+{##}
+{#                    <ul class="navbar-nav ml-auto">#}
+{#                        <li class="nav-item">#}
+{#                            <a href="{% url 'index:index' %}" class="nav-link active">برگشت</a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </nav>#}
+{#            <!--Navbar End-->#}
+{##}
+{#            <section class="banner-blog">#}
+{#                <div id="particles-js"></div>#}
+{#                <!--Banner Caption-->#}
+{#                <div class="banner-caption text-center">#}
+{#                    <h1>وبلاگ</h1>#}
+{#                    <div class="bread-crumb mt-10">#}
+{#                        <a href="{% url 'index:index' %}">خانه</a>#}
+{#                        <a href="#">دفترچه تلفن</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </section>#}
+{##}
+{#            <!--Blog List Section Starts-->#}
+{#            <section class="blogs blog-list pt-100 pb-50" data-scroll-index="4">#}
+{#                <div class="container">#}
+{#                    <div class="row">#}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <!--Blogs Item-->#}
+{#                            <div class="blog-item">#}
+{#                                <div class="blog-img">#}
+{#                                    <a href="#">#}
+{#                                        <img src="{% static 'images/blog/img-1.jpg' %}" alt="">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                                <div class="blog-content">#}
+{#                                    <h3>لورم ایپسوم متن ساختگی با تولید سادگی </h3>#}
+{#                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>#}
+{#                                    <div class="blog-meta">#}
+{#                                        <span class="more">#}
+{#                                            <a href="#">مطالعه بیشتر</a>#}
+{#                                        </span>#}
+{#                                        <span class="date">#}
+{#                                            22 مرداد 1400#}
+{#                                        </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <!--Blogs Item-->#}
+{#                            <div class="blog-item">#}
+{#                                <div class="blog-img">#}
+{#                                    <a href="#">#}
+{#                                        <img src="{% static 'images/blog/img-2.jpg' %}" alt="">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                                <div class="blog-content">#}
+{#                                    <h3>لورم ایپسوم متن ساختگی با تولید سادگی </h3>#}
+{#                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>#}
+{#                                    <div class="blog-meta">#}
+{#                                        <span class="more">#}
+{#                                            <a href="#">مطالعه بیشتر</a>#}
+{#                                        </span>#}
+{#                                        <span class="date">#}
+{#                                            22 مرداد 1400#}
+{#                                        </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <!--Blogs Item-->#}
+{#                            <div class="blog-item">#}
+{#                                <div class="blog-img">#}
+{#                                    <a href="#">#}
+{#                                        <img src="{% static 'images/blog/img-3.jpg' %}" alt="">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                                <div class="blog-content">#}
+{#                                    <h3>لورم ایپسوم متن ساختگی با تولید سادگی </h3>#}
+{#                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>#}
+{#                                    <div class="blog-meta">#}
+{#                                        <span class="more">#}
+{#                                            <a href="#">مطالعه بیشتر</a>#}
+{#                                        </span>#}
+{#                                        <span class="date">#}
+{#                                            22 مرداد 1400#}
+{#                                        </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <!--Blogs Item-->#}
+{#                            <div class="blog-item">#}
+{#                                <div class="blog-img">#}
+{#                                    <a href="#">#}
+{#                                        <img src="{% static 'images/blog/img-4.jpg' %}" alt="">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                                <div class="blog-content">#}
+{#                                    <h3>لورم ایپسوم متن ساختگی با تولید سادگی </h3>#}
+{#                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>#}
+{#                                    <div class="blog-meta">#}
+{#                                        <span class="more">#}
+{#                                            <a href="#">مطالعه بیشتر</a>#}
+{#                                        </span>#}
+{#                                        <span class="date">#}
+{#                                            22 مرداد 1400#}
+{#                                        </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <!--Blogs Item-->#}
+{#                            <div class="blog-item">#}
+{#                                <div class="blog-img">#}
+{#                                    <a href="#">#}
+{#                                        <img src="{% static 'images/blog/img-5.jpg' %}" alt="">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                                <div class="blog-content">#}
+{#                                    <h3>لورم ایپسوم متن ساختگی با تولید سادگی </h3>#}
+{#                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>#}
+{#                                    <div class="blog-meta">#}
+{#                                        <span class="more">#}
+{#                                            <a href="#">مطالعه بیشتر</a>#}
+{#                                        </span>#}
+{#                                        <span class="date">#}
+{#                                            22 مرداد 1400#}
+{#                                        </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <div class="col-lg-4 col-md-6">#}
+{#                            <!--Blogs Item-->#}
+{#                            <div class="blog-item">#}
+{#                                <div class="blog-img">#}
+{#                                    <a href="#">#}
+{#                                        <img src="{% static 'images/blog/img-6.jpg' %}" alt="">#}
+{#                                    </a>#}
+{#                                </div>#}
+{#                                <div class="blog-content">#}
+{#                                    <h3>لورم ایپسوم متن ساختگی با تولید سادگی </h3>#}
+{#                                    <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>#}
+{#                                    <div class="blog-meta">#}
+{#                                        <span class="more">#}
+{#                                            <a href="#">مطالعه بیشتر</a>#}
+{#                                        </span>#}
+{#                                        <span class="date">#}
+{#                                            22 مرداد 1400#}
+{#                                        </span>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </section>#}
+{#            <!--Blog List Section End-->#}
+{#                    <!--Jquery js-->#}
+{#            <script src="{% static 'js/jquery.min.js' %}"></script>#}
+{#            <!--Bootstrap js-->#}
+{#            <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
+{#            <!--Stellar js-->#}
+{#            <script src="{% static 'js/jquery.stellar.js' %}"></script>#}
+{#            <!--Animated Headline js-->#}
+{#            <script src="{% static 'js/animated.headline.js' %}"></script>#}
+{#            <!--Owl Carousel js-->#}
+{#            <script src="{% static 'js/owl.carousel.min.js' %}"></script>#}
+{#            <!--ScrollIt js-->#}
+{#            <script src="{% static 'js/scrollIt.min.js' %}"></script>#}
+{#            <!--Isotope js-->#}
+{#            <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>#}
+{#            <!--Magnific Popup js-->#}
+{#            <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>#}
+{#            <!--Site Main js-->#}
+{#            <script src="{% static 'js/main.js' %}"></script>#}
+{##}
+{#        </body>#}
+{#    {% endblock %}#}
+{#</html>#}
