@@ -19,6 +19,12 @@
                         :)
                     </a>
 
+                    <form method="get" action="{% url 'contacts:contact_search' %}">
+                        {% csrf_token %}
+                        <input type="text" name="query" required>
+                        <input type="submit" value="search">
+                    </form>
+
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a href="{% url 'index:index' %}" class="nav-link active">برگشت</a>

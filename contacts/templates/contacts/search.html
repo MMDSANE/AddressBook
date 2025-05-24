@@ -1,0 +1,27 @@
+{% extends 'parents/basecontacts.html' %}
+{% load static %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+    {% if query %}
+        {{ results.count }}
+        نتیجه جستجو برای {{ query }}:
+        <br><br><br><br><br><br><br><br><br>
+        {% for contact in results %}
+            <ul>
+{#                {% if contact.pic %}#}
+{#                    <img src="{{ post.pic.first.image_file.url }}" alt="{{ contact.pic.last_name }}">#}
+{#                {% else %}#}
+{#                    <img src="{% static 'images/user.PNG' %}" alt="PHOTO">#}
+{#                {% endif %}#}
+                <li><h1 align="center"><a href="{{ contact.get_absolute_url }}">{{ contact.first_name }}  --  {{ contact.last_name }}</a></h1></li>
+            </ul>
+
+            <br><br><br>
+{#            <p>#}
+{#                {{ post.description }}#}
+{#            </p>#}
+            {% empty %}
+                جستجو نتیجه‌ای دربر نداشت
+        {% endfor %}
+    {% endif %}
+{% endblock %}

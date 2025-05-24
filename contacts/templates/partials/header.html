@@ -1,3 +1,5 @@
-{#<p>#}
-{#    header#}
-{#</p>#}
+{#<form method="get" action="{% url 'contacts:contact_search' %}">#}
+{#    {% csrf_token %}#}
+{#    <input type="text" name="query" required>#}
+{#    <input type="submit" value="search">#}
+{#</form>#}
